@@ -1,7 +1,6 @@
 public class Entry{
     //Attributes
 
-
     public string _dateTime = DateTime.Now.ToString("yyyy-MM-dd");
     public string _userInput;
     public List<string> _allPrompts = new List<string>()
@@ -13,6 +12,7 @@ public class Entry{
     };
     Random rng = new Random();
     string _myPrompt;
+
 
     //Behaviors
 
@@ -33,6 +33,8 @@ public class Entry{
         return _userInput;
     }
 
+    //Function that compiles the data from
+    //everything and compiles it to send back to journal.
     public string CompileEntry()
     {
         return $"{_dateTime}, {_myPrompt} {_userInput}";
