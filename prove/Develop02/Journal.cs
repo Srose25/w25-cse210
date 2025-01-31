@@ -7,6 +7,7 @@ public class Journal {
     //Behaviors
 
     //This function calls our Entry class
+    /*
     public string Initialize()
     {
         Entry newEntry = new Entry();
@@ -17,6 +18,7 @@ public class Journal {
 
         return newEntry.CompileEntry();
     }
+    */
 
     //This function Adds each compiled entry to a list
     public void AppendEntry()
