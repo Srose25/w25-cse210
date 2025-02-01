@@ -8,7 +8,9 @@ public class Entry{
         "What was something funny that happened today?",
         "What warmed your heart today?",
         "What did you do today?",
-        "What was something you learned today?"
+        "What was something you learned today?",
+        "How did you take care of yourself today?",
+        "How did you see the hand of the Lord today?"
     };
     Random rng = new Random();
     string _myPrompt;
