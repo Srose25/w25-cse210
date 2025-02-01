@@ -8,9 +8,9 @@ public class Menu {
 
     //Behaviors
 
+    //Function that displays the menu until the user quits the system
     public void DisplayMenu()
     {
-        //DONT RUN UNTIL READ LINE HAS BEEN PLACED
         Journal myJournal = new Journal();
         while (running)
         {
