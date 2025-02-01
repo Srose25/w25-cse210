@@ -50,7 +50,7 @@ public class Journal {
         if (File.Exists(fileName))
         {
             _entryList = new List<string>(File.ReadAllLines(fileName));
-            Console.WriteLine("Journale Successfully Loaded");
+            Console.WriteLine("Journal Successfully Loaded");
         }
         
         else
