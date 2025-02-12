@@ -28,7 +28,7 @@ public class Word
         return _revealed;
     }
 
-    public string GetDisplayText()
+    public string GetWordText()
     {
         return _revealed ? _word : "___";
     }
