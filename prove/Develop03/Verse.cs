@@ -40,12 +40,18 @@ public class Verse
         }
 
         //Create a method that picks the amount of difficulty of words in the sentence to hide
+        List<int> chosenIndexes = new List<int>();
 
+        while (chosenIndexes.Count < difficulty)
+        {
+            int randomIndex = rng.Next(_wordList.count);
+            
+        }
     }
 
 
-    public string GetVerseText() //don't leave void
+    public void GetVerseText() //don't leave void
     {
-        return ;
+
     }
 }
