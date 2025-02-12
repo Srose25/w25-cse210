@@ -8,18 +8,19 @@ public class Word
     //Initialize
     public Word(string word)
     {
-        word = _word;
+        _word = word;
+        _revealed = true;
     }
 
     //Behaviors
-    public void Display()
+    public void Reveal()
     {
-        Console.WriteLine(_word);
+        _revealed = true;
     }
 
     public void Hide()
     {
-        Console.WriteLine("___");
+        _revealed = false;
     }
 
     public bool IsRevealed(bool _revealed)
@@ -27,5 +28,9 @@ public class Word
         return _revealed;
     }
 
+    public string GetDisplayText()
+    {
+        return _revealed ? _word : "___";
+    }
 
 }
