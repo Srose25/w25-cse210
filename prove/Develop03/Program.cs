@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Develop03 World!");
+//        Console.WriteLine("Hello Develop03 World!");
 
 
 
@@ -31,8 +31,13 @@ class Program
 //        Reference test4 = new Reference("Joe", 5, 6, 12);
 //        Console.WriteLine(test4.DisplayReference());
 
-        Menu test5 = new Menu();
-        test5.MenuLoop();
+
+//        Menu test5 = new Menu();
+//        test5.SelectScripture();
+
+        //Call Menu
+        Menu start1 = new Menu();
+        start1.SelectScripture();
         
 
     }
