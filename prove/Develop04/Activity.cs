@@ -1,3 +1,5 @@
+using System.Timers;
+
 public class Activity
 {
     //Attributes
@@ -6,14 +8,15 @@ public class Activity
 
     //Behaviors
 
-    public Activity(string title, string desc)
-    {
-        _title = title;
-        _desc = desc;
-    }
+    public Activity()
+    {}
+
     public void Welcome()
     {
         Console.WriteLine("Welcome to the Meditations app: Pick an option below \n");
+        Thread.Sleep(1000);
+
+        userInput();
     }
 
     public void userInput()
@@ -60,14 +63,14 @@ public class Activity
         }
     }
 
-    public void Clock()
+    public int Clock()
     {
-        Console.WriteLine("How long (in seconds) would you like to do this activity?");
+        Console.WriteLine("How many intervals (1 interval = 10 seconds) would you like to do this activity?");
         string tinput = Console.ReadLine();
 
         if (int.TryParse(tinput, out int time))
         {
-            Console.WriteLine($"You will do this activity for {time} seconds");
+            Console.WriteLine($"You will do this activity for {time * 10} seconds");
         }
 
         else
@@ -78,7 +81,7 @@ public class Activity
 
         Console.Clear();
         Console.Write("Activity Starting in...");
-        Thread.Sleep(500);
+        Thread.Sleep(1000);
         Console.Write("3...");
         Thread.Sleep(1000);
         Console.Write("2...");
@@ -88,14 +91,20 @@ public class Activity
 
 
         //create the timer
-        time = time * 1000;
+        time = time * 10 * 1000; //Interval * seconds * miliseconds
+        return time;
 
-        Thread.Sleep(time);
+//        Console.Clear();
+//
+//        while (elapse < time)
+//        {
+//            string[] frames = { "|", "/", "-", "/" };
+//            Console.Write("\r" + frames[elapse / 200 % frames.Length]);
+//
+//            Thread.Sleep(200); // Pause for animation effect
+//            elapse += 200;
+//        }
 
         //create the animation
     }
-
-
-
-
 }

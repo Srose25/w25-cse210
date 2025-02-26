@@ -5,7 +5,7 @@ public class ListingActivity : Activity
     //Behaviors
 
     public ListingActivity(string title, string desc)
-        : base (title, desc)
+
     {
         this._title = title;
         this._desc = desc;
@@ -15,5 +15,7 @@ public class ListingActivity : Activity
     {
         Console.WriteLine($"{_title}\n");
         Console.WriteLine($"{_desc}");
+
+        int time = Clock();
     }
 }

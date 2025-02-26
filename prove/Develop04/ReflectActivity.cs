@@ -5,7 +5,7 @@ public class ReflectActivity : Activity
     //Behaviors
 
     public ReflectActivity(string title, string desc)
-        : base(title, desc)
+
     {
         this._title = title;
         this._desc = desc;
@@ -15,5 +15,7 @@ public class ReflectActivity : Activity
     {
         Console.WriteLine($"{_title}\n");
         Console.WriteLine($"{_desc}");
+
+        int time = Clock();
     }
 }

@@ -2,7 +2,7 @@ public class BreatheActivity : Activity
 {
 
     public BreatheActivity(string title, string desc)
-     : base(title, desc)
+
     {
         this._title = title;
         this._desc = desc;
@@ -12,6 +12,12 @@ public class BreatheActivity : Activity
     {
         Console.WriteLine($"{_title}\n");
         Console.WriteLine($"{_desc}");
+
+        int time = Clock();
+
+        Console.Clear();
+
+        
 
         
 
