@@ -14,6 +14,7 @@ public class ReflectActivity : Activity
     public void DoReflect()
     {
         Console.WriteLine($"{_title}\n");
+        Thread.Sleep(2000);
         Console.WriteLine($"{_desc}");
 
         int time = Clock();

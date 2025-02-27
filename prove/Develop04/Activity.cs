@@ -13,7 +13,7 @@ public class Activity
 
     public void Welcome()
     {
-        Console.WriteLine("Welcome to the Meditations app: Pick an option below \n");
+        Console.WriteLine("Welcome to the Meditations app: Pick an option below");
         Thread.Sleep(1000);
 
         userInput();
@@ -25,6 +25,7 @@ public class Activity
 
         while(running)
         {
+            Console.WriteLine(); //White Space
             Console.WriteLine("1. Breathe Activity");
             Console.WriteLine("2. Reflect Activity");
             Console.WriteLine("3. Listing Activity");
@@ -35,17 +36,17 @@ public class Activity
             switch(userInput)
             {
                 case "1":
-                BreatheActivity ba1 = new BreatheActivity("Breathing Activity", "Welcome to the Breathing Activity! First you will choose how long the duration of the activity will be and then you will breathe in and out in 5 second increments. Try to only focus on that breath during the activity.");
+                BreatheActivity ba1 = new BreatheActivity("Welcome to the Breathing Activity!", "\nFirst you will choose how long the duration of the activity will be \nand then you will breathe in and out in 5 second increments.\n Try to only focus on that breath during the activity.");
                 ba1.DoBreathe();
                 break;
 
                 case "2":
-                ReflectActivity ra1 = new ReflectActivity("Reflect Activity", "Welcome to the Reflect Activity! First you will choose how long the duration of the activity will be, then you will be given a prompt and as the activity goes on you will reflect on that prompt and on your life.");
+                ReflectActivity ra1 = new ReflectActivity("Welcome to the Reflect Activity", "\nFirst you will choose how long the duration of the activity will be, \nthen you will be given a prompt and as the activity goes on you will reflect on that prompt and on your life.");
                 ra1.DoReflect();
                 break;
 
                 case "3":
-                ListingActivity la1 = new ListingActivity("Listing Activity", "Welcome to the Listing Activity! First you will choose how long the duration of the activity will be, then you will be given a prompt and as the activity goes on you will list the things you can think of relating to the prompt.");
+                ListingActivity la1 = new ListingActivity("Welcome to the Listing Activity!", "\nFirst you will choose how long the duration of the activity will be, \nthen you will be given a prompt and as the activity goes on you will list the things you can think of relating to the prompt.");
                 la1.DoListing();
                 break;
 
@@ -65,7 +66,7 @@ public class Activity
 
     public int Clock()
     {
-        Console.WriteLine("How many intervals (1 interval = 10 seconds) would you like to do this activity?");
+        Console.WriteLine("\nHow many intervals (1 interval = 10 seconds) would you like to do this activity?");
         string tinput = Console.ReadLine();
 
         if (int.TryParse(tinput, out int time))
@@ -93,18 +94,5 @@ public class Activity
         //create the timer
         time = time * 10 * 1000; //Interval * seconds * miliseconds
         return time;
-
-//        Console.Clear();
-//
-//        while (elapse < time)
-//        {
-//            string[] frames = { "|", "/", "-", "/" };
-//            Console.Write("\r" + frames[elapse / 200 % frames.Length]);
-//
-//            Thread.Sleep(200); // Pause for animation effect
-//            elapse += 200;
-//        }
-
-        //create the animation
     }
 }

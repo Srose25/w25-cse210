@@ -14,6 +14,7 @@ public class ListingActivity : Activity
     public void DoListing()
     {
         Console.WriteLine($"{_title}\n");
+        Thread.Sleep(2000);
         Console.WriteLine($"{_desc}");
 
         int time = Clock();
