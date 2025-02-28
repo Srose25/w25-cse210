@@ -10,6 +10,7 @@ public class BreatheActivity : Activity
 
     public void DoBreathe()
     {
+        Console.Clear();
         Console.WriteLine($"{_title}\n");
         Thread.Sleep(2000);
         Console.WriteLine($"{_desc}");
