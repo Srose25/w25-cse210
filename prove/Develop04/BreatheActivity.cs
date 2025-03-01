@@ -14,6 +14,11 @@ public class BreatheActivity : Activity
         int time = Clock();
 
         Console.Clear();
+        Console.WriteLine("Press Enter to Begin:");
+        Console.ReadLine();
+
+        Console.Clear();
+
         int elapse = 0;
 
         while (elapse < time)
