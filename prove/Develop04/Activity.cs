@@ -122,4 +122,13 @@ public class Activity
             Console.Write("\r");
         }
     }
+
+    public void EndMessage(string title)
+    {
+        Console.WriteLine($"Thank you, I hope you found the {title} enlightening or at all helpful!");
+
+        Thread.Sleep(3000);
+
+        Console.Clear();
+    }
 }

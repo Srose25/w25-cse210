@@ -82,5 +82,6 @@ public class ReflectActivity : Activity
             AnimateProgressBar(10000 / 20); // Animation inside loop
             elapse += 10000;
         }
+        EndMessage(_title);
     }
 }

@@ -34,5 +34,6 @@ public class BreatheActivity : Activity
             Console.WriteLine();
             elapse += 10000;
         }
+        EndMessage(_title);
     }
 }

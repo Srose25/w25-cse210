@@ -53,6 +53,7 @@ public class ListingActivity : Activity
         }
 
         Console.WriteLine($"Congrats! You wrote down {responses.Count} responses!");
+        EndMessage(_title);
         
     }
 }
