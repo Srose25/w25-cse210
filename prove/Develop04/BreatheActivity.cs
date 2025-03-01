@@ -10,11 +10,7 @@ public class BreatheActivity : Activity
 
     public void DoBreathe()
     {
-        Console.Clear();
-        Console.WriteLine($"{_title}\n");
-        Thread.Sleep(2000);
-        Console.WriteLine($"{_desc}");
-
+        StartMessage(_title, _desc);
         int time = Clock();
 
         Console.Clear();
@@ -22,30 +18,16 @@ public class BreatheActivity : Activity
 
         while (elapse < time)
         {
-            Console.Write($"Breathe in...");
-            for (int i = 5; i > 0; i--)
-            {
-                Console.Write($"{i}");
+            Console.WriteLine($"Breathe in...");
+            AnimateProgressBar(5000 / 20);
 
-                Thread.Sleep(1000); // Pause for animation effect
-                Console.Write("\b \b");
-                elapse += 1000;
-            }
             Console.WriteLine();
             
-            Console.Write($"Breathe Out...");
-            for (int i = 5; i > 0; i--)
-            {
-                Console.Write($"{i}");
+            Console.WriteLine($"Breathe Out...");
+            AnimateProgressBar(5000 / 20);
 
-                Thread.Sleep(1000);
-                Console.Write("\b \b");
-                elapse += 1000;
-            }
             Console.WriteLine();
+            elapse += 10000;
         }
-
-        
-
     }
 }
