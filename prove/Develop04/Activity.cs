@@ -13,9 +13,10 @@ public class Activity
 
     public void Welcome()
     {
-        Console.WriteLine("Welcome to the Meditations app: Pick an option below");
+        Console.WriteLine("Welcome to the Meditations app: Please pick an option");
         Thread.Sleep(1000);
 
+        Console.Clear();
         userInput();
     }
 
@@ -72,31 +73,32 @@ public class Activity
         Console.WriteLine($"\n{desc}");
     }
 
-    public int Clock()
+public int Clock()
+{
+    int time;
+    
+    while (true)
     {
         Console.WriteLine("\nHow many intervals (1 interval = 10 seconds) would you like to do this activity?");
         string tinput = Console.ReadLine();
 
-        if (int.TryParse(tinput, out int time))
+        if (int.TryParse(tinput, out time) && time > 0)
         {
             Console.WriteLine($"You will do this activity for {time * 10} seconds");
             Thread.Sleep(3000);
+            
+            Console.Clear();
+            Console.WriteLine("Activity Starting Soon... Get Ready!");
+            AnimateProgressBar(3000 / 20);
+
+
+            return time * 10 * 1000; //interval * seconds * milliseconds
         }
-
-        else
-        {
-            Console.WriteLine("Invalid Option. Please choose a number");
-        }
-
-
-        Console.Clear();
-        Console.WriteLine("Activity Starting Soon... Get Ready!");
-        AnimateProgressBar(3000 / 20);
-
-        //create the timer
-        time = time * 10 * 1000; //Interval * seconds * miliseconds
-        return time;
+        
+        Console.WriteLine("Invalid option. Please enter a positive number.");
     }
+}
+
 
     public void AnimateProgressBar(int step)
     {
@@ -127,7 +129,7 @@ public class Activity
     {
         Console.WriteLine($"Thank you, I hope you found the {title} enlightening or at all helpful!");
 
-        Thread.Sleep(3000);
+        Thread.Sleep(5000);
 
         Console.Clear();
     }
