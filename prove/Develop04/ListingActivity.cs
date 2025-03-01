@@ -26,20 +26,23 @@ public class ListingActivity : Activity
 
     public void DoListing()
     {
+        //Begin with the Start Message and get the time from user
         StartMessage(_title, _desc);
         int time = Clock();
 
+        //Get random prompt from the list and prep the user for activity
         Random rand = new Random();
         string question = questions[rand.Next(questions.Count)];
         Console.WriteLine($"Question:--- {question} ---\n");
         Console.WriteLine("Press Enter when you're ready to begin");
-
         Console.ReadLine();
 
+        //Variables for game loop
         List<string> responses = new List<string>();
         int elapse = 0;
         DateTime startTime = DateTime.Now;
 
+        //The user will be able to list as many things as they can think of until time runs out
         while (elapse < time)
         {
             if (Console.KeyAvailable)
@@ -52,8 +55,8 @@ public class ListingActivity : Activity
             elapse = (int)(DateTime.Now - startTime).TotalMilliseconds;
         }
 
+        //Ending Message
         Console.WriteLine($"Congrats! You wrote down {responses.Count} responses!");
         EndMessage(_title);
-        
     }
 }
