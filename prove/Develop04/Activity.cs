@@ -80,6 +80,7 @@ public class Activity
         if (int.TryParse(tinput, out int time))
         {
             Console.WriteLine($"You will do this activity for {time * 10} seconds");
+            Thread.Sleep(3000);
         }
 
         else
@@ -89,15 +90,8 @@ public class Activity
 
 
         Console.Clear();
-        Console.Write("Activity Starting in...");
-        Thread.Sleep(1000);
-        Console.Write("3...");
-        Thread.Sleep(1000);
-        Console.Write("2...");
-        Thread.Sleep(1000);
-        Console.Write("1...");
-        Thread.Sleep(1000);
-
+        Console.WriteLine("Activity Starting Soon... Get Ready!");
+        AnimateProgressBar(3000 / 20);
 
         //create the timer
         time = time * 10 * 1000; //Interval * seconds * miliseconds
