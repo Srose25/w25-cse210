@@ -71,7 +71,9 @@ public class ReflectActivity : Activity
             //questions for, the program will crash so it doesn't infinitely loop
             if (chosen.Count >= questions.Count)
             {
+                Console.Clear();
                 Console.WriteLine("oopsies :)");
+                Thread.Sleep(5000);
                 break;
             }
 
