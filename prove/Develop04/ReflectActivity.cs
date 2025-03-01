@@ -30,16 +30,22 @@ public class ReflectActivity : Activity
             "What made this experience stand out among the rest?",
             "What is your favorite thing about this experience?",
             "How can you keep this experience in mind in the future?",
+            "What emotions did you feel during this experience?",
+            "Who was with you, and how did they contribute to the moment?",
+            "What details about this experience stand out the most?",
+            "What did this moment teach you about yourself?",
+            "If you could relive this experience, would you change anything?",
+            "How did this experience make you feel connected to others?",
+            "What strengths did you display during this moment?",
+            "How does thinking about this memory make you feel right now?",
+            "How can you create more experiences like this in the future?",
+            "What words would you use to describe this moment to someone else?"
         };
     }
 
     public void DoReflect()
     {
-        Console.Clear();
-        Console.WriteLine($"{_title}\n");
-        Thread.Sleep(2000);
-        Console.WriteLine($"{_desc}");
-
+        StartMessage(_title, _desc);
         int time = Clock();
 
         Console.Clear();
@@ -76,34 +82,5 @@ public class ReflectActivity : Activity
             AnimateProgressBar(10000 / 20); // Animation inside loop
             elapse += 10000;
         }
-    }
-
-
-    private void AnimateProgressBar(int step)
-    {
-        int barLength = 20;
-        for (int i = 0; i < barLength; i++)
-        {
-            
-            Console.Write("[");
-
-            for (int z = 0; z < barLength; z++ )
-            {
-                if (z > i)
-                {
-                    Console.Write("-");
-                }
-                else
-                {
-                    Console.Write("#");
-                }
-            }
-            Console.Write("]");
-            Thread.Sleep(step);
-
-            Console.Write("\r");
-            
-        }
-
     }
 }
