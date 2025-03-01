@@ -45,43 +45,53 @@ public class ReflectActivity : Activity
 
     public void DoReflect()
     {
+        //Start message and get time from user
         StartMessage(_title, _desc);
         int time = Clock();
-
         Console.Clear();
+
+        //Get random prompt from list and display it for the user, then prep them for the activity
         Random rand = new Random();
         string prompt = promptList[rand.Next(promptList.Count)];
-
         Console.WriteLine("Consider the Following Prompt: \n");
         Console.WriteLine($"---{prompt}---\n");
         Console.WriteLine("Press Enter to Continue:");
-
         Console.ReadLine();
         Console.WriteLine("Now, reflect on your memory while answering these questions.\n");
         Thread.Sleep(1000);
 
-
+        //Variables for game loop
         int elapse = 0;
         List<int> chosen = new List<int>{};
+
+        //The user will be asked a question about the memory they chose every 10 seconds
         while(elapse < time)
         {
+            //In case the user is doing the activity longer than I have 
+            //questions for, the program will crash so it doesn't infinitely loop
             if (chosen.Count >= questions.Count)
             {
                 Console.WriteLine("oopsies :)");
                 break;
             }
+
             Random rand1 = new Random();
             int i = 0;
+
+            //Another failsafe to make sure I don't ask the same question twice
             do
             {
                 i = rand1.Next(questions.Count);
             } while(chosen.Contains(i));
-
             chosen.Add(i);
+
+            //Display the question animate progress bar and update
             Console.WriteLine($"Question: {questions[i]}\n");
-            AnimateProgressBar(10000 / 20); // Animation inside loop
+            AnimateProgressBar(10000 / 20);
             elapse += 10000;
         }
+
+        //end message
         EndMessage(_title);
     }
 }

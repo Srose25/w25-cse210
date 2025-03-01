@@ -11,17 +11,21 @@ public class Activity
     public Activity()
     {}
 
+
     public void Welcome()
     {
+        //A little starting message before the menu
         Console.WriteLine("Welcome to the Meditations app: Please pick an option");
-        Thread.Sleep(1000);
+        Thread.Sleep(3000);
 
         Console.Clear();
         userInput();
     }
 
+
     public void userInput()
     {
+        //Menu
         bool running = true;
 
         while(running)
@@ -65,16 +69,21 @@ public class Activity
         }
     }
 
+
     public void StartMessage(string title, string desc)
     {
+        //Prints start message with the right data for each child class
         Console.Clear();
         Console.WriteLine($"Hello! Welcome to the {title}!");
         Thread.Sleep(2000);
         Console.WriteLine($"\n{desc}");
     }
 
+
 public int Clock()
 {
+    //prompts the user for a positive integer to make the activities last for 10 second intervals
+    //if they enter something besides that it will loop on itself so the game can work properly
     int time;
     
     while (true)
@@ -102,11 +111,14 @@ public int Clock()
 
     public void AnimateProgressBar(int step)
     {
+        //quite a bit of logic that helps animate the progress bar
         int barLength = 20;
+        //[i] works as a clock of sorts making sure that each interval is stepping forward
         for (int i = 0; i < barLength; i++)
         {
             Console.Write("[");
 
+            //[z] works to print out the entire progress bar with the right amount of - / # so that you can see the end of the progress bar
             for (int z = 0; z < barLength; z++ )
             {
                 if (z > i)
@@ -125,8 +137,10 @@ public int Clock()
         }
     }
 
+
     public void EndMessage(string title)
     {
+        //An ending message
         Console.WriteLine($"Thank you, I hope you found the {title} enlightening or at all helpful!");
 
         Thread.Sleep(5000);

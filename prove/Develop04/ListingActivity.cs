@@ -29,6 +29,7 @@ public class ListingActivity : Activity
         //Begin with the Start Message and get the time from user
         StartMessage(_title, _desc);
         int time = Clock();
+        Console.Clear();
 
         //Get random prompt from the list and prep the user for activity
         Random rand = new Random();
