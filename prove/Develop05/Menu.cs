@@ -19,8 +19,24 @@ public class Menu()
 
         while(running)
         {
-            Console.ReadLine(); //So I don't accidentally make an infi loop
+            string choice = Console.ReadLine(); //So I don't accidentally make an infi loop
+
+
+
+            switch(choice)
+            {
+            case "1":
+            break;
+
+            case "2":
+            break;
+            }
         }
+    }
+
+    public void ()
+    {
+
     }
 
     public void Save()
