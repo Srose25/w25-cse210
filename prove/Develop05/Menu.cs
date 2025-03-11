@@ -15,7 +15,12 @@ public class Menu()
 
     public void Start()
     {
+        bool running = true;
 
+        while(running)
+        {
+            Console.ReadLine(); //So I don't accidentally make an infi loop
+        }
     }
 
     public void Save()

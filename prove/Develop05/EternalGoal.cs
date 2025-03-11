@@ -15,7 +15,7 @@ public class EternalGoal : Goal
 
     public override string Display()
     {
-
+        return $"{_gtype} - {_goal}: {_desc}, {_points}";
     }
 
     public override void RecordEvent()
@@ -39,9 +39,20 @@ public class EternalGoal : Goal
 
     public override int SetPoints()
     {
-        Console.WriteLine("How many points should this be worth?");
-        _points = Console.ReadLine();
-
-        return _points;
+        while(true)
+        {
+           Console.WriteLine("How many points should this be worth?");
+           string number = Console.ReadLine();
+    
+    
+           if (int.TryParse(number, out int _points))
+           {
+               return _points;
+           }
+           else
+           {
+               Console.WriteLine("Invalid input. Please enter a valid number.");
+           }
+        }
     }
 }
