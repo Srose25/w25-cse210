@@ -6,27 +6,44 @@ public class SimpleGoal : Goal
 
 
     //Behaviors
-    public SimpleGoal(string goal, int points, int score, bool status)
+    public SimpleGoal(string goal, string desc, int points, bool status)
     {
         _goal = goal;
         _gtype = "Simple Goal";
+        _desc = desc;
         _points = points;
-        _score = score;
         _status = status;
     }
 
-    public override void Display()
+    public override string Display()
     {
         
     }
 
     public override void RecordEvent()
     {
-        
+
     }
 
-    public override void RecordGoal()
+    public override string RecordGoal()
     {
-        
+        Console.WriteLine("What is your new Simple Goal? ");
+        _goal = Console.ReadLine();
+        return _goal;
+    }
+
+    public override string SetDesc()
+    {
+        Console.WriteLine($"Write a short description of {_goal}");
+        _desc = Console.ReadLine();
+        return _desc;
+    }
+
+    public override int SetPoints()
+    {
+        Console.WriteLine("How many points should this be worth?");
+        _points = Console.ReadLine();
+
+        return _points;
     }
 }
