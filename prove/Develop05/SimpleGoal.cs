@@ -1,8 +1,6 @@
 public class SimpleGoal : Goal
 {
-    //Attributes
-
-    private bool _status;
+    //Attribute
 
 
     //Behaviors
@@ -17,12 +15,7 @@ public class SimpleGoal : Goal
 
     public override string Display()
     {
-        return $"{_gtype} - {_goal}: {_desc}, {_points}, {_status}";
-    }
-
-    public override void RecordEvent()
-    {
-
+        return $"{_gtype} - {_goal}: {_desc}, {_points}";
     }
 
     public override string RecordGoal()
@@ -47,7 +40,7 @@ public class SimpleGoal : Goal
            string number = Console.ReadLine();
     
     
-           if (int.TryParse(number, out int _points))
+           if (int.TryParse(number, out _points))
            {
                return _points;
            }
@@ -56,5 +49,20 @@ public class SimpleGoal : Goal
                Console.WriteLine("Invalid input. Please enter a valid number.");
            }
         }
+    }
+
+    public override int GetPoints()
+    {
+        return _points;
+    }
+
+    public override void RecordEvent()
+    {
+        _status = true;
+    }
+
+    public override bool GetStatus()
+    {
+        return _status;
     }
 }

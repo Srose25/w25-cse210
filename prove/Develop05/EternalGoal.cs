@@ -5,22 +5,18 @@ public class EternalGoal : Goal
 
     //Behaviors
 
-    public EternalGoal(string goal, string desc, int points)
+    public EternalGoal(string goal, string desc, int points, bool status)
     {
         _goal = goal;
         _gtype = "Eternal Goal";
         _desc = desc;
         _points = points;
+        _status = status;
     }
 
     public override string Display()
     {
         return $"{_gtype} - {_goal}: {_desc}, {_points}";
-    }
-
-    public override void RecordEvent()
-    {
-
     }
 
     public override string RecordGoal()
@@ -45,7 +41,7 @@ public class EternalGoal : Goal
            string number = Console.ReadLine();
     
     
-           if (int.TryParse(number, out int _points))
+           if (int.TryParse(number, out _points))
            {
                return _points;
            }
@@ -54,5 +50,17 @@ public class EternalGoal : Goal
                Console.WriteLine("Invalid input. Please enter a valid number.");
            }
         }
+    }
+
+    public override int GetPoints()
+    {
+        return _points;
+    }
+
+    public override void RecordEvent(){}
+
+    public override bool GetStatus()
+    {
+        return _status;
     }
 }
