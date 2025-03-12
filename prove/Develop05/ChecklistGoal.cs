@@ -28,6 +28,11 @@ public class ChecklistGoal : Goal
         return $"{_gtype} - {_goal}: {_desc}, {_points}, {_bonus}, {_scount}/{_ecount}";
     }
 
+    public override string ToString()
+    {
+        return $"{_gtype},{_goal},{_desc},{_points},{_status},{_bonus},{_scount},{_ecount}";
+    }
+
     public override string RecordGoal()
     {
         Console.WriteLine("What is your new Checklist Goal? ");

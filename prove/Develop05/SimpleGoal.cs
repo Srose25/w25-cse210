@@ -18,6 +18,12 @@ public class SimpleGoal : Goal
         return $"{_gtype} - {_goal}: {_desc}, {_points}";
     }
 
+    public override string ToString()
+    {
+        return $"{_gtype},{_goal},{_desc},{_points},{_status}";
+    }
+
+
     public override string RecordGoal()
     {
         Console.WriteLine("What is your new Simple Goal? ");

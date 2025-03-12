@@ -174,10 +174,20 @@ public void RecordGoalEvent()
 }
 
 
-    public void Save()
-    {
+public void Save()
+{
+    Console.Write("Enter filename to save to: ");
+    string fileName = Console.ReadLine();
 
-    }
+    // Convert _goalList to a list of strings using LINQ
+    List<string> lines = _goalList.Select(goal => goal.ToString()).ToList();
+
+    File.WriteAllLines(fileName, lines);
+
+    Console.WriteLine("Saving...");
+    AnimateProgressBar(2000 / 10);
+}
+
 
     public void Load()
     {
