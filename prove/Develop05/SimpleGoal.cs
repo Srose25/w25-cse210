@@ -15,7 +15,7 @@ public class SimpleGoal : Goal
 
     public override string Display()
     {
-        return $"{_gtype} - {_goal}: {_desc}, Points: {_points}";
+        return $"{_gtype} - {_goal}: {_desc}. \nPoints: {_points}";
     }
 
     public override string ToString()
@@ -33,7 +33,7 @@ public class SimpleGoal : Goal
 
     public override string SetDesc()
     {
-        Console.WriteLine($"Write a short description of {_goal}");
+        Console.WriteLine($"Write a short description of ({_goal})");
         _desc = Console.ReadLine();
         return _desc;
     }

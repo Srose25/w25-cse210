@@ -90,10 +90,12 @@ public class Menu()
                 if (_goalList[i].GetStatus() == true)
                 {
                     Console.WriteLine($"{i + 1}. [X] {_goalList[i].Display()}");
+                    Console.WriteLine();
                 }
                 else
                 {
-                    Console.WriteLine($"{i + 1}. [ ] {_goalList[i].Display()}");                    
+                    Console.WriteLine($"{i + 1}. [ ] {_goalList[i].Display()}");
+                    Console.WriteLine();                 
                 }
 
             }
@@ -162,16 +164,19 @@ public void RecordGoalEvent()
 {
     Console.Clear();
     Console.WriteLine("Select a goal to record:");
+    Console.WriteLine();
 
     for (int i = 0; i < _goalList.Count; i++)
     {
         if (_goalList[i].GetStatus() == true)
         {
             Console.WriteLine($"{i + 1}. [X] {_goalList[i].Display()}");
+            Console.WriteLine();
         }
         else
         {
-            Console.WriteLine($"{i + 1}. [ ] {_goalList[i].Display()}");                    
+            Console.WriteLine($"{i + 1}. [ ] {_goalList[i].Display()}");
+            Console.WriteLine();       
         }
     }
 
