@@ -15,7 +15,7 @@ public class SimpleGoal : Goal
 
     public override string Display()
     {
-        return $"{_gtype} - {_goal}: {_desc}, {_points}";
+        return $"{_gtype} - {_goal}: {_desc}, Points: {_points}";
     }
 
     public override string ToString()

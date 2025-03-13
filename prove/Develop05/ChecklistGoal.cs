@@ -25,7 +25,7 @@ public class ChecklistGoal : Goal
 
     public override string Display()
     {
-        return $"{_gtype} - {_goal}: {_desc}, {_points}, {_bonus}, {_scount}/{_ecount}";
+        return $"{_gtype} - {_goal}: {_desc}, Points: {_points} - Bonus: {_bonus} -- Completion: {_scount}/{_ecount}";
     }
 
     public override string ToString()
