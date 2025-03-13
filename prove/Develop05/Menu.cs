@@ -1,13 +1,11 @@
+using System.Runtime.CompilerServices;
+
 public class Menu()
 {
     //Attributes
 
     int _score = 0;
     List<Goal> _goalList = new List<Goal>{};
-    List<string> _milestones = new List<string> //A list full of encouraging milestone messages
-    {
-
-    };
 
 
     //Behaviors
@@ -18,8 +16,6 @@ public class Menu()
         while(running)
         {
             Console.Clear();
-
-            Console.WriteLine("Welcome to the Goal Setting App!");
             Milestone();
             Console.WriteLine();
             Console.WriteLine("1. Create New Goal");
@@ -66,7 +62,7 @@ public class Menu()
 
             else if (gchoice == 3)
             {
-                ChecklistGoal cgoal1 = new ChecklistGoal("goal", "desc", 0, 0, 0, 0, false);
+                ChecklistGoal cgoal1 = new ChecklistGoal("goal", "desc", 0, false, 0, 0, 0);
                 AnimateProgressBar(1000 / 10);
                 Console.WriteLine("Checklist Goal: \n");
 
@@ -87,6 +83,7 @@ public class Menu()
             break;
 
             case "2":
+            AnimateProgressBar(500 / 10);
             Console.Clear();
             for (int i = 0; i < _goalList.Count; i++)
             {
@@ -105,14 +102,17 @@ public class Menu()
             break;
 
             case "3":
+            AnimateProgressBar(1000 / 10);
             Save();
             break;
 
             case "4":
+            AnimateProgressBar(1000 / 10);
             Load();
             break;
 
             case "5":
+            AnimateProgressBar(1000 / 10);
             RecordGoalEvent();
             break;
             }
@@ -154,22 +154,41 @@ public class Menu()
 
 public void RecordGoalEvent()
 {
+    Console.Clear();
     Console.WriteLine("Select a goal to record:");
+
     for (int i = 0; i < _goalList.Count; i++)
     {
-        Console.WriteLine($"{i + 1}. {_goalList[i].Display()}");
+        if (_goalList[i].GetStatus() == true)
+        {
+            Console.WriteLine($"{i + 1}. [X] {_goalList[i].Display()}");
+        }
+        else
+        {
+            Console.WriteLine($"{i + 1}. [ ] {_goalList[i].Display()}");                    
+        }
     }
 
     if (int.TryParse(Console.ReadLine(), out int choice) && choice > 0 && choice <= _goalList.Count)
     {
         Goal selectedGoal = _goalList[choice - 1];
+        if(selectedGoal.GetStatus() == false)
+        {
         selectedGoal.RecordEvent();
 
         _score += selectedGoal.GetPoints();
+        AnimateProgressBar(1000 / 10);
+        }
+        else
+        {
+            Console.WriteLine("This Goal has already been accomplished");
+            AnimateProgressBar(1000 / 10);
+        }
     }
     else
     {
         Console.WriteLine("Invalid selection.");
+        AnimateProgressBar(1000 / 10);
     }
 }
 
@@ -191,7 +210,48 @@ public void Save()
 
     public void Load()
     {
+        Console.Write("Enter a file name to load from: ");
+        string fileName = Console.ReadLine();
 
+        if (File.Exists(fileName))
+        {
+            string[] lines = File.ReadAllLines(fileName);
+            _goalList.Clear();
+
+            foreach (string line in lines)
+            {
+                string[] parts = line.Split(',');
+
+                string gtype = parts[0];
+                string goal = parts[1];
+                string desc = parts[2];
+                int points = int.Parse(parts[3]);
+                bool status = bool.Parse(parts[4]);
+
+                if(gtype == "Simple Goal")
+                {
+                    _goalList.Add(new SimpleGoal(goal, desc, points, status));
+                }
+                else if(gtype == "Eternal Goal")
+                {
+                    _goalList.Add(new EternalGoal(goal, desc, points, status));
+                }
+                else if(gtype == "Checklist Goal")
+                {
+                    int scount = int.Parse(parts[4]);
+                    int ecount = int.Parse(parts[5]);
+                    int bonus = int.Parse(parts[6]);
+                    _goalList.Add(new ChecklistGoal(goal, desc, points, status, scount, ecount, bonus));
+                }
+            }
+            Console.WriteLine("Loading...");
+            AnimateProgressBar(2000 / 10);
+        }
+        else
+        {
+            Console.WriteLine("File Not Found");
+            AnimateProgressBar(1000 / 10);
+        }
     }
 
         public void AnimateProgressBar(int step)
@@ -224,6 +284,82 @@ public void Save()
 
     public void Milestone() // A method that will print a new piece of text whenever the user reaches a milestone... this will be long
     {
+        if(_score >= 10 && _score <= 50)
+        {
+            Console.WriteLine($"Congrats!");
+            Console.WriteLine();
+            Console.WriteLine($"Score: {_score}");
+            Console.WriteLine("Next Goal: 50");
+        }
+        else if(_score >= 50 && _score <= 100)
+        {
+            Console.WriteLine($"Wow, you've come far!");
+            Console.WriteLine();
+            Console.WriteLine($"Score: {_score}");
+            Console.WriteLine("Next Goal: 100");
+        }
+        else if(_score >= 100 && _score <=200)
+        {
+            Console.WriteLine($"I wish I was as motivated as you.");
+            Console.WriteLine();
+            Console.WriteLine($"Score: {_score}");
+            Console.WriteLine("Next Goal: 200");
+        }
+        else if(_score >= 200 && _score <= 500)
+        {
+            Console.WriteLine($"Ok Ok I get it you're doing stuff with your life \nyou don't have to shove it in my face...");
+            Console.WriteLine();
+            Console.WriteLine($"Score: {_score}");
+            Console.WriteLine("Next Goal: 500");
+        }
+        else if(_score >= 500  && _score <= 1000)
+        {
+            Console.WriteLine($"Does it ever end with you? \nYou ever gonna stop?");
+            Console.WriteLine();
+            Console.WriteLine($"Score: {_score}");
+            Console.WriteLine("Next Goal: 1000");
+        }
+        else if(_score >= 1000 && _score <= 2000)
+        {
+            Console.WriteLine($"Listen, I'm tired boss. \nDo you know how hard it is to keep \ntrack of all these points?...");
+            Console.WriteLine();
+            Console.WriteLine($"Score: {_score}");
+            Console.WriteLine("Next Goal: 2000");
+        }
+        else if(_score >= 2000 && _score <= 3000)
+        {
+            Console.WriteLine($"WHAT DO YOU WANT FROM ME??? \nA TROPHY? A STUFFED ANIMAL?? \nA MUG THAT SAYS (MORNING PERSON) ON IT OR SOMETHING??? \nWHAT?????");
+            Console.WriteLine();
+            Console.WriteLine($"Score: {_score}");
+            Console.WriteLine("Next Goal: 3000");
+        }
+        else if(_score >= 3000 && _score <= 5000)
+        {
+            Console.WriteLine($"...");
+            Console.WriteLine();
+            Console.WriteLine($"Score: {_score}");
+            Console.WriteLine("Next Goal: 5000");
+        }
+        else if(_score >= 5000 && _score <= 10000)
+        {
+            Console.WriteLine("I'm not showing your score anymore. \nLike, you're going straight to heaven at this point, \njust let me go back to sleep");
+            Console.WriteLine();
+
+            Console.WriteLine("Next Goal: 10000");
+        }
+        else if(_score >= 10000)
+        {
+            Console.WriteLine("zzz...");
+            Console.WriteLine();
+
+            Console.WriteLine("Next Goal: Infinity...");
+        }
+        else
+        {
+            Console.WriteLine("Welcome to the Goal Setting App!");
+            Console.WriteLine();
+            Console.WriteLine($"Score: {_score}");
+        }
 
     }
 }

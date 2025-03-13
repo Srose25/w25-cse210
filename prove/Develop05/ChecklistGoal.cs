@@ -11,7 +11,7 @@ public class ChecklistGoal : Goal
 
     //Behaviors
 
-    public ChecklistGoal(string goal, string desc, int points, int scount, int ecount, int bonus, bool status)
+    public ChecklistGoal(string goal, string desc, int points, bool status, int scount, int ecount, int bonus)
     {
         _goal = goal;
         _gtype = "Checklist Goal";
