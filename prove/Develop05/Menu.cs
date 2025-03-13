@@ -115,6 +115,12 @@ public class Menu()
             AnimateProgressBar(1000 / 10);
             RecordGoalEvent();
             break;
+
+            case "6":
+            Console.Clear();
+            Console.WriteLine("Thank you come back again soon!");
+            running = false;
+            break;
             }
         }
     }
