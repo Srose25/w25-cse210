@@ -11,7 +11,9 @@ public abstract class Goal
 
 
     //Behaviors
-    public Goal(){}
+    public Goal(){}                 //An Abstract class that list the attributes and functionality of a goal
+                                    //That's meant to be overriden by child classes for different versions 
+                                    //of Goals
 
     public abstract string Display();
     public abstract string RecordGoal();

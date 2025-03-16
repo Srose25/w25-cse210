@@ -23,31 +23,31 @@ public class ChecklistGoal : Goal
         _status = status;
     }
 
-    public override string Display()
+    public override string Display()//Returns a string for displaying in Menu
     {
         return $"{_gtype} - {_goal}: {_desc}. \nPoints: {_points} - Bonus: {_bonus} -- Completion: {_scount}/{_ecount}";
     }
 
-    public override string ToString()
+    public override string ToString()//Returns a string with every data point
     {
         return $"{_gtype},{_goal},{_desc},{_points},{_status},{_bonus},{_scount},{_ecount}";
     }
 
-    public override string RecordGoal()
+    public override string RecordGoal()//Sets the name of the new goal
     {
         Console.WriteLine("What is your new Checklist Goal? ");
         _goal = Console.ReadLine();
         return _goal;
     }
 
-    public override string SetDesc()
+    public override string SetDesc()//Sets the description of the new goal
     {
         Console.WriteLine($"Write a short description of ({_goal})");
         _desc = Console.ReadLine();
         return _desc;
     }
 
-    public override int SetPoints()
+    public override int SetPoints()//Sets the amount of points for the new goal
     {
         while(true)
         {
@@ -66,7 +66,7 @@ public class ChecklistGoal : Goal
         }
     }
 
-    public int SetBonus() //Set the bonus
+    public int SetBonus()//Sets the bonus 
     {
         while(true)
         {
@@ -83,7 +83,7 @@ public class ChecklistGoal : Goal
         }
     }
 
-    public int SetEndCount() //Set how many times you want to do this goal
+    public int SetEndCount()//Sets how many times you want to do this goal
     {
         while(true)
         {
@@ -101,7 +101,7 @@ public class ChecklistGoal : Goal
         
     }
 
-    public override int GetPoints()
+    public override int GetPoints()//Gets the amount of points if they haven't accomplished the goal yet
     {
         if(_scount == _ecount)
         {
@@ -110,7 +110,7 @@ public class ChecklistGoal : Goal
         return _points;
     }
 
-    public override void RecordEvent()
+    public override void RecordEvent()//Applies the bonus if the user has accomplished their goal
     {
         _scount += 1;
         if(_scount == _ecount)
@@ -119,7 +119,7 @@ public class ChecklistGoal : Goal
         }
     }
 
-    public override bool GetStatus()
+    public override bool GetStatus()//Gets the status of the goal
     {
         return _status;
     }

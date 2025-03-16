@@ -16,9 +16,9 @@ public class Menu()
         while(running)
         {
             Console.Clear();
-            Milestone();
+            Milestone();                                //Display milestone message
             Console.WriteLine();
-            Console.WriteLine("1. Create New Goal");
+            Console.WriteLine("1. Create New Goal");    //Displaying the Menu
             Console.WriteLine("2. List Goals");
             Console.WriteLine("3. Save Goals");
             Console.WriteLine("4. Load Goals");
@@ -31,10 +31,10 @@ public class Menu()
 
             switch(choice)
             {
-            case "1":
+            case "1":                                   //Create a goal
             int gchoice = SelectGoalType();
             Console.Clear();
-            if (gchoice == 1)
+            if (gchoice == 1)                           //Simple Goal
             {
                 SimpleGoal sgoal1 = new SimpleGoal("goal", "desc", 0, false );
                 AnimateProgressBar(1000 / 10);
@@ -47,7 +47,7 @@ public class Menu()
                 AnimateProgressBar(1000 / 10);
             }
 
-            else if (gchoice == 2)
+            else if (gchoice == 2)                      //Eternal Goal
             {
                 EternalGoal egoal1 = new EternalGoal("goal", "desc", 0, false);
                 AnimateProgressBar(1000 / 10);
@@ -60,7 +60,7 @@ public class Menu()
                 AnimateProgressBar(1000 / 10);
             }
 
-            else if (gchoice == 3)
+            else if (gchoice == 3)                      //Checklist Goal
             {
                 ChecklistGoal cgoal1 = new ChecklistGoal("goal", "desc", 0, false, 0, 0, 0);
                 AnimateProgressBar(1000 / 10);
@@ -75,14 +75,14 @@ public class Menu()
                 AnimateProgressBar(1000 / 10);
             }
 
-            else
+            else                                        //failsafe
             {
                 Console.WriteLine("Error");
                 AnimateProgressBar(1000 / 10);
             }
             break;
 
-            case "2":
+            case "2":                                   //Display Goals
             AnimateProgressBar(500 / 10);
             Console.Clear();
             for (int i = 0; i < _goalList.Count; i++)
@@ -103,22 +103,22 @@ public class Menu()
             Console.ReadLine();
             break;
 
-            case "3":
+            case "3":                                   //Save
             AnimateProgressBar(1000 / 10);
             Save();
             break;
 
-            case "4":
+            case "4":                                   //Load
             AnimateProgressBar(1000 / 10);
             Load();
             break;
 
-            case "5":
+            case "5":                                   //Accomplishing goal
             AnimateProgressBar(1000 / 10);
             RecordGoalEvent();
             break;
 
-            case "6":
+            case "6":                                   //Quit
             Console.Clear();
             Console.WriteLine("Thank you come back again soon!");
             running = false;
@@ -160,13 +160,13 @@ public class Menu()
         return 0;
     }
 
-public void RecordGoalEvent()
+public void RecordGoalEvent()       //Records a goal as stated from option 5
 {
     Console.Clear();
     Console.WriteLine("Select a goal to record:");
     Console.WriteLine();
 
-    for (int i = 0; i < _goalList.Count; i++)
+    for (int i = 0; i < _goalList.Count; i++)   //Displays Goals
     {
         if (_goalList[i].GetStatus() == true)
         {
@@ -180,8 +180,8 @@ public void RecordGoalEvent()
         }
     }
 
-    if (int.TryParse(Console.ReadLine(), out int choice) && choice > 0 && choice <= _goalList.Count)
-    {
+    if (int.TryParse(Console.ReadLine(), out int choice) && choice > 0 && choice <= _goalList.Count)//Gets input and then figures out
+    {                                                                                               //if it can choose that option
         Goal selectedGoal = _goalList[choice - 1];
         if(selectedGoal.GetStatus() == false)
         {
@@ -204,7 +204,7 @@ public void RecordGoalEvent()
 }
 
 
-public void Save()
+public void Save()      //Saves your goals to a file of the User's choice
 {
     Console.Write("Enter filename to save to: ");
     string fileName = Console.ReadLine();
@@ -219,7 +219,7 @@ public void Save()
 }
 
 
-    public void Load()
+    public void Load()  //Loads goals from a file of the User's choice
     {
         Console.Write("Enter a file name to load from: ");
         string fileName = Console.ReadLine();
@@ -293,7 +293,7 @@ public void Save()
         }
     }
 
-    public void Milestone() // A method that will print a new piece of text whenever the user reaches a milestone... this will be long
+    public void Milestone() // A method that will print a new piece of text whenever the user reaches a milestone
     {
         if(_score >= 10 && _score <= 50)
         {
