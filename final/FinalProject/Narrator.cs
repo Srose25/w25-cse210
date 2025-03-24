@@ -44,7 +44,7 @@ public abstract class Narrator()
 
 
     // Abstract methods
-    public abstract string ProvideHint();
+    public abstract string ProvideHint(string key);
     public abstract string DescribeEnvironment(string key);
     public virtual string GetDialogue(string key)
     {
