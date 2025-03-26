@@ -3,9 +3,8 @@ public abstract class Narrator()
     public enum MoodState
     {
         Neutral = 0,
-        Happy = 1,
         Angry = 2,
-        Depressed = 3
+        Depressed = 1
     }
     protected MoodState _moodLevel = MoodState.Neutral; //Different integer = Different mood
     protected readonly Dictionary<string, List<string>> _memory = new Dictionary<string, List<string>>();
@@ -23,23 +22,6 @@ public abstract class Narrator()
     public MoodState GetMood()
     {
         return _moodLevel;
-    }
-
-    public void LogMemory(string area, string eventDescription)
-    {
-        if (!_memory.ContainsKey(area))
-        {
-            _memory[area] = new List<string>();
-        }
-        _memory[area].Add(eventDescription);
-    }
-
-    public string RecallMemory(string area)
-    {
-        if (_memory.ContainsKey(area))
-            return string.Join(", ", _memory[area]);
-
-        return "You remember nothing significant.";
     }
 
 
