@@ -1,4 +1,4 @@
-public class Area()
+public class Area
 {
     //Attributes
     protected int _irritation;
@@ -8,7 +8,6 @@ public class Area()
     protected bool _rock;
 
     //Behaviors
-    //public Area() : this(0, 0, false, false, false) { }
     public Area(int irritation, int depression, bool shovel, bool fishpole, bool rock)
     {
         this._irritation = irritation;
