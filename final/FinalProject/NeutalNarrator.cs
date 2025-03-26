@@ -17,7 +17,7 @@ public class NeutralNarrator : Narrator
         {
             "You stare into it. It entrances you.",
             "Fascinating. A thing. Truly groundbreaking.",
-            "That won't help you, but sure, go ahead."
+            "This is sure to be useful."
         };
 
         _dialogue["key_found"] = new List<string>
@@ -36,30 +36,30 @@ public class NeutralNarrator : Narrator
 
         _hint["grass_hint"] = new List<string>
         {
-            "",
-            "",
-            ""
+            "My guess is something important is over in that tree house.",
+            "That locket doesn't seem important.",
+            "There doesn't seem to be anything over at the hill but you may not have the right tool yet."
         };
 
         _hint["river_hint"] = new List<string>
         {
-            "",
-            "",
-            ""
+            "It would be nice to go fishing here. You should look into that.",
+            "That boat is really cute, it may be nice to sit in it.",
+            "That mound of dirt seems pretty useless."
         };
 
         _hint["cave_hint"] = new List<string>
         {
-            "",
-            "",
-            ""
+            "Holes don't seem to be worth our time.",
+            "The Memorial probably contains the biggest secret.",
+            "A rock may be useful in some cases."
         };
 
         // Initialize environment descriptions
         _environment["grass"] = new List<string>
         {
-            "The grass stretches endlessly. If you stare too long, you might start contemplating existence. Don't.",
-            "Green, swaying, utterly unremarkable."
+            "The grass stretches endlessly. If you stare too long, you might get lost in its beauty.",
+            "Green, swaying, utterly unremarkable. The wind feels like the nearly forgotten touch of a loved one."
         };
 
         _environment["river"] = new List<string>
@@ -70,8 +70,8 @@ public class NeutralNarrator : Narrator
 
         _environment["cave"] = new List<string>
         {
-            "Dark, damp, and full of regret. Like my life.",
-            "Echoes bounce off the cave walls. They sound smarter than you."
+            "Dark, damp, and full of regret. This Cave seems to shedding a tear for something...",
+            "Echoes bounce off the cave walls. It's like they're speaking to me."
         };
     }
 

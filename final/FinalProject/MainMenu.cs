@@ -1,3 +1,5 @@
+using System.Formats.Asn1;
+using System.Media;
 public class MainMenu()
 {
     //Attributes
@@ -19,7 +21,8 @@ public class MainMenu()
             switch(choice)
             {
                 case "1":
-
+                Area start = new Area(0, 0, false, false, false);
+                start.Start();
                 break;
 
 
@@ -29,5 +32,16 @@ public class MainMenu()
             }
         }
     }
-
+    public void PlaySound(string key)
+    {
+        try
+        {
+            SoundPlayer player = new SoundPlayer(key);
+            player.Play();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Failed to play sound: {ex.Message}");
+        }
+    }
 }
