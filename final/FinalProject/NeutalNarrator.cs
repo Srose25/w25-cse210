@@ -74,25 +74,4 @@ public class NeutralNarrator : Narrator
             "Echoes bounce off the cave walls. It's like they're speaking to me."
         };
     }
-
-    public override string ProvideHint(string key)
-    {
-        return GetRandomResponse(_hint, key);
-    }
-
-    public override string DescribeEnvironment(string key)
-    {
-        return GetRandomResponse(_environment, key);
-    }
-
-    // Utility method to get a random response from a dictionary
-    private string GetRandomResponse(Dictionary<string, List<string>> dictionary, string key)
-    {
-        if (dictionary.ContainsKey(key) && dictionary[key].Count > 0)
-        {
-            Random rnd = new Random();
-            return dictionary[key][rnd.Next(dictionary[key].Count)];
-        }
-        return "The Narrator remains silent.";
-    }
 }

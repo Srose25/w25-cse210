@@ -9,17 +9,28 @@ class Program
 
 
         MainMenu test1 = new MainMenu();
-        if (!File.Exists("sfx1.wav"))
+        if (!File.Exists("talk1.wav"))
         {
             Console.WriteLine("File not found!");
         }
         else
         {
+            bool running = true;
+            int go = 0;
             Console.WriteLine("File found!");
-            test1.PlaySound("sfx1.wav");
-            Thread.Sleep(1000);
-            test1.PlaySound("sfx1.wav");
-            Thread.Sleep(5000);
+            while(running)
+            {
+                if(go == 10)
+                {
+                    running = false;
+                }
+                else
+                {
+                    test1.PlaySound("talk1.wav");
+                    Thread.Sleep(300);
+                    go += 1;
+                }
+            }
         }
 
     }

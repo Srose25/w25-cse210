@@ -5,6 +5,6 @@ public class CaveArea : Area
     {}
     public void CaveStart()
     {
-
+        
     }
 }
