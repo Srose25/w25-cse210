@@ -6,6 +6,13 @@ public class Area
     protected bool _shovel;
     protected bool _fishpole;
     protected bool _rock;
+    public enum MoodState
+    {
+        Neutral = 0,
+        Angry = 1,
+        Depressed = 2
+    }
+    protected MoodState _moodLevel = MoodState.Neutral; //Different integer = Different mood
 
     //Behaviors
     public Area(int irritation, int depression, bool shovel, bool fishpole, bool rock)
@@ -19,7 +26,7 @@ public class Area
 
     public void Start()
     {
-
+        //Beginning monologue and exposition
     }
 
     public void AreaMenu()
@@ -65,13 +72,14 @@ public class Area
                 }
                 break;
 
-                case "2":
+                case "2":   //Inventory
                 break;
 
-                case "3":
+                case "3":   //Unlock the Box / end the game
                 break;
 
-                case "4":
+                case "4":   //End the game early
+                running = false;
                 break;
             }
 
@@ -81,6 +89,18 @@ public class Area
 
     public void End()
     {
+        //What happens when you open the box / end monologue
+    }
 
+
+    //Utility Methods
+    public void SetMood(MoodState value)
+    {
+        _moodLevel = value;
+    }
+
+    public MoodState GetMood()
+    {
+        return _moodLevel;
     }
 }

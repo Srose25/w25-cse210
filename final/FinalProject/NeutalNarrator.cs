@@ -74,4 +74,9 @@ public class NeutralNarrator : Narrator
             "Echoes bounce off the cave walls. It's like they're speaking to me."
         };
     }
+
+    public override void DialogueSpeed()
+    {
+        //Neutral Speed
+    }
 }

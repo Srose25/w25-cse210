@@ -1,27 +1,20 @@
 public abstract class Narrator()
 {
-    public enum MoodState
-    {
-        Neutral = 0,
-        Angry = 1,
-        Depressed = 2
-    }
-    protected MoodState _moodLevel = MoodState.Neutral; //Different integer = Different mood
     protected readonly Dictionary<string, List<string>> _dialogue = new Dictionary<string, List<string>>();
     protected readonly Dictionary<string, List<string>> _hint = new Dictionary<string, List<string>>();
     protected readonly Dictionary<string, List<string>> _environment = new Dictionary<string, List<string>>();
 
 
     // Core methods
-    public void SetMood(MoodState value)
-    {
-        _moodLevel = value;
-    }
-
-    public MoodState GetMood()
-    {
-        return _moodLevel;
-    }
+//    public void SetMood(MoodState value)
+//    {
+//        _moodLevel = value;
+//    }
+//
+//    public MoodState GetMood()
+//    {
+//        return _moodLevel;
+//    }
 
 
     // Virtual methods
@@ -52,4 +45,6 @@ public abstract class Narrator()
         return "The Narrator remains silent.";
     }
 
+    //Abstract Method
+    public abstract void DialogueSpeed();
 }
