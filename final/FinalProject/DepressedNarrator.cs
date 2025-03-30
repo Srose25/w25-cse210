@@ -59,8 +59,17 @@ public class DepressedNarrator : Narrator
         };
     }
 
-        public override void DialogueSpeed()
+    public override void DialogueSpeed(string sentence)
     {
-        //Slow Speed
+        
+        string[] words = sentence.Split(' '); // Split into words
+
+        foreach (string word in words)
+        {
+            Console.Write(word + " "); // Print each word
+            Thread.Sleep(400); // Pause between words
+        }
+
+        Console.WriteLine(); // New line at the end
     }
 }

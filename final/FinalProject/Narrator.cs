@@ -46,5 +46,5 @@ public abstract class Narrator()
     }
 
     //Abstract Method
-    public abstract void DialogueSpeed();
+    public abstract void DialogueSpeed(string sentence);
 }

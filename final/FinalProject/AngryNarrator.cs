@@ -59,8 +59,17 @@ public class AngryNarrator : Narrator
         };
     }
 
-        public override void DialogueSpeed()
+    public override void DialogueSpeed(string sentence)
     {
-        //Fast Speed
+        
+        string[] words = sentence.Split(' '); // Split into words
+
+        foreach (string word in words)
+        {
+            Console.Write(word + " "); // Print each word
+            Thread.Sleep(200); // Pause between words
+        }
+
+        Console.WriteLine(); // New line at the end
     }
 }
