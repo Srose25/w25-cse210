@@ -7,30 +7,31 @@ public class RiverArea : Area
     {}
         public void RiverStart()
     {
+        Console.Clear();
         if(_moodLevel == MoodState.Neutral)
         {
             Narrator neutralnarrator = new NeutralNarrator();
-            neutralnarrator.DescribeEnvironment("river");
-            neutralnarrator.DialogueSpeed();
+            string rndresponse = neutralnarrator.DescribeEnvironment("river");
+            neutralnarrator.DialogueSpeed(rndresponse);
         }
         else if(_moodLevel == MoodState.Angry)
         {
             Narrator angrynarrator = new NeutralNarrator();
-            angrynarrator.DescribeEnvironment("river");
-            angrynarrator.DialogueSpeed();
+            string rndresponse = angrynarrator.DescribeEnvironment("river");
+            angrynarrator.DialogueSpeed(rndresponse);
         }
         else if(_moodLevel == MoodState.Depressed)
         {
             Narrator depressednarrator = new NeutralNarrator();
-            depressednarrator.DescribeEnvironment("river");
-            depressednarrator.DialogueSpeed();
+            string rndresponse = depressednarrator.DescribeEnvironment("river");
+            depressednarrator.DialogueSpeed(rndresponse);
         }
 
-        Console.WriteLine("");
-        Console.WriteLine("");
-        Console.WriteLine("");
-        Console.WriteLine("");
-        Console.WriteLine("");
+//        Console.WriteLine("");
+//        Console.WriteLine("");
+//        Console.WriteLine("");
+//        Console.WriteLine("");
+//        Console.WriteLine("");
 
         string choice = Console.ReadLine();
 

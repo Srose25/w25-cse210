@@ -5,31 +5,32 @@ public class CaveArea : Area
     {}
     public void CaveStart()
     {
+        Console.Clear();
         if(_moodLevel == MoodState.Neutral)
         {
             Narrator neutralnarrator = new NeutralNarrator();
-            neutralnarrator.DescribeEnvironment("cave");
-            neutralnarrator.DialogueSpeed();
+            string rndresponse = neutralnarrator.DescribeEnvironment("cave");
+            neutralnarrator.DialogueSpeed(rndresponse);
         }
         else if(_moodLevel == MoodState.Angry)
         {
             Narrator angrynarrator = new NeutralNarrator();
-            angrynarrator.DescribeEnvironment("cave");
-            angrynarrator.DialogueSpeed();
+            string rndresponse = angrynarrator.DescribeEnvironment("cave");
+            angrynarrator.DialogueSpeed(rndresponse);
         }
         else if(_moodLevel == MoodState.Depressed)
         {
             Narrator depressednarrator = new NeutralNarrator();
-            depressednarrator.DescribeEnvironment("cave");
-            depressednarrator.DialogueSpeed();
+            string rndresponse = depressednarrator.DescribeEnvironment("cave");
+            depressednarrator.DialogueSpeed(rndresponse);
         }
 
 
-        Console.WriteLine("");
-        Console.WriteLine("");
-        Console.WriteLine("");
-        Console.WriteLine("");
-        Console.WriteLine("");
+//        Console.WriteLine("");
+//        Console.WriteLine("");
+//        Console.WriteLine("");
+//        Console.WriteLine("");
+//        Console.WriteLine("");
 
         string choice = Console.ReadLine();
 

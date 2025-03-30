@@ -27,6 +27,7 @@ public class Area
     public void Start()
     {
         //Beginning monologue and exposition
+        AreaMenu();
     }
 
     public void AreaMenu()
@@ -34,6 +35,7 @@ public class Area
         bool running = true;
         while(running)
         {
+            Console.Clear();
             Console.WriteLine("Menu:\n");
             Console.WriteLine("1. Look Around"); //Menu options
             Console.WriteLine("2. Inventory");
