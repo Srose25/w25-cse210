@@ -5,29 +5,7 @@ public abstract class Narrator()
     protected readonly Dictionary<string, List<string>> _environment = new Dictionary<string, List<string>>();
 
 
-    // Core methods
-//    public void SetMood(MoodState value)
-//    {
-//        _moodLevel = value;
-//    }
-//
-//    public MoodState GetMood()
-//    {
-//        return _moodLevel;
-//    }
-
-
     // Virtual methods
-    public virtual string ProvideHint(string key)
-    {
-        return GetRandomResponse(_hint, key);
-    }
-
-    public virtual string DescribeEnvironment(string key)
-    {
-        return GetRandomResponse(_environment, key);
-    }
-
     public virtual string GetDialogue(string key)
     {
         return GetRandomResponse(_dialogue, key);
