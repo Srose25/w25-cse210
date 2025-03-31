@@ -1,7 +1,7 @@
 public class CaveArea : Area 
 {
-    public CaveArea(int irritation, int depression, bool shovel, bool fishpole, bool rock)
-        : base(irritation, depression, shovel, fishpole, rock)
+    public CaveArea(int depression, bool shovel, bool fishpole, bool rock, int locket, int picture, int musbox, bool Gkey, bool Rkey, bool Ckey)
+        : base(depression, shovel, fishpole, rock, locket, picture, musbox, Gkey, Rkey, Ckey)
     {}
     public void CaveStart()
     {
@@ -26,11 +26,11 @@ public class CaveArea : Area
         }
 
 
-//        Console.WriteLine("");
-//        Console.WriteLine("");
-//        Console.WriteLine("");
-//        Console.WriteLine("");
-//        Console.WriteLine("");
+        Console.WriteLine("");
+        Console.WriteLine("");
+        Console.WriteLine("");
+        Console.WriteLine("");
+        Console.WriteLine("");
 
         string choice = Console.ReadLine();
 

@@ -1,7 +1,7 @@
 public class GrassArea : Area
 {
-    public GrassArea(int irritation, int depression, bool shovel, bool fishpole, bool rock)
-        : base(irritation, depression, shovel, fishpole, rock)
+    public GrassArea(int depression, bool shovel, bool fishpole, bool rock, int locket, int picture, int musbox, bool Gkey, bool Rkey, bool Ckey)
+        : base(depression, shovel, fishpole, rock, locket, picture, musbox, Gkey, Rkey, Ckey)
     {}
         public void GrassStart()
     {
@@ -25,12 +25,12 @@ public class GrassArea : Area
             depressednarrator.DialogueSpeed(rndresponse);
         }
 
-//        Console.WriteLine("");
-//        Console.WriteLine("");
-//        Console.WriteLine("");
-//        Console.WriteLine("");
-//        Console.WriteLine("");
-//
+        Console.WriteLine("");
+        Console.WriteLine("");
+        Console.WriteLine("");
+        Console.WriteLine("");
+        Console.WriteLine("");
+
         string choice = Console.ReadLine();
 
         switch(choice)

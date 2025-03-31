@@ -1,7 +1,6 @@
 public class Area
 {
     //Attributes
-    protected int _irritation;
     protected int _depression;
     protected bool _shovel;
     protected bool _fishpole;
@@ -14,14 +13,28 @@ public class Area
     }
     protected MoodState _moodLevel = MoodState.Neutral; //Different integer = Different mood
 
+    protected int _locket;
+    protected int _picture;                             // 1 = you've collected it
+    protected int _musbox;                              // 2 = it's broken
+
+    protected bool _Gkey;
+    protected bool _Rkey;
+    protected bool _Ckey;
+
     //Behaviors
-    public Area(int irritation, int depression, bool shovel, bool fishpole, bool rock)
+    public Area(int depression, bool shovel, bool fishpole, bool rock, int locket, int picture, int musbox, bool Gkey, bool Rkey, bool Ckey)
     {
-        this._irritation = irritation;
+
         this._depression = depression;
         this._shovel = shovel;
         this._fishpole = fishpole;
         this._rock = rock;
+        this._locket = locket;
+        this._picture = picture;
+        this._musbox = musbox;
+        this._Gkey = Gkey;
+        this._Rkey = Rkey;
+        this._Ckey = Ckey;
     }
 
     public void Start()
@@ -54,17 +67,17 @@ public class Area
                 switch(area_choice)
                 {
                     case "1":
-                    RiverArea rarea1 = new RiverArea(_irritation, _depression, _shovel, _fishpole, _rock);
+                    RiverArea rarea1 = new RiverArea( _depression, _shovel, _fishpole, _rock, _locket, _picture, _musbox, _Gkey, _Rkey, _Ckey);
                     rarea1.RiverStart();
                     break;
 
                     case "2":
-                    GrassArea garea1 = new GrassArea(_irritation, _depression, _shovel, _fishpole, _rock);
+                    GrassArea garea1 = new GrassArea(_depression, _shovel, _fishpole, _rock, _locket, _picture, _musbox, _Gkey, _Rkey, _Ckey);
                     garea1.GrassStart();
                     break;
 
                     case "3":
-                    CaveArea carea1 = new CaveArea(_irritation, _depression, _shovel, _fishpole, _rock);
+                    CaveArea carea1 = new CaveArea(_depression, _shovel, _fishpole, _rock, _locket, _picture, _musbox, _Gkey, _Rkey, _Ckey);
                     carea1.CaveStart();
                     break;
 
@@ -78,6 +91,10 @@ public class Area
                 break;
 
                 case "3":   //Unlock the Box / end the game
+                if (_Gkey && _Rkey && _Ckey)
+                {
+                    End();
+                }
                 break;
 
                 case "4":   //End the game early
@@ -104,5 +121,26 @@ public class Area
     public MoodState GetMood()
     {
         return _moodLevel;
+    }
+    public void PrintResponse(string key)
+    {
+                if(_moodLevel == MoodState.Neutral)
+        {
+            Narrator neutralnarrator = new NeutralNarrator();
+            string rndresponse = neutralnarrator.GetDialogue(key);
+            neutralnarrator.DialogueSpeed(rndresponse);
+        }
+        else if(_moodLevel == MoodState.Angry)
+        {
+            Narrator angrynarrator = new NeutralNarrator();
+            string rndresponse = angrynarrator.GetDialogue(key);
+            angrynarrator.DialogueSpeed(rndresponse);
+        }
+        else if(_moodLevel == MoodState.Depressed)
+        {
+            Narrator depressednarrator = new NeutralNarrator();
+            string rndresponse = depressednarrator.GetDialogue(key);
+            depressednarrator.DialogueSpeed(rndresponse);
+        }
     }
 }

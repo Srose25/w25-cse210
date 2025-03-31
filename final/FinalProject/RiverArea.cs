@@ -2,52 +2,68 @@ using System.Xml.Serialization;
 
 public class RiverArea : Area
 {
-    public RiverArea(int irritation, int depression, bool shovel, bool fishpole, bool rock)
-        : base(irritation, depression, shovel, fishpole, rock)
+    public RiverArea(int depression, bool shovel, bool fishpole, bool rock, int locket, int picture, int musbox, bool Gkey, bool Rkey, bool Ckey)
+        : base(depression, shovel, fishpole, rock, locket, picture, musbox, Gkey, Rkey, Ckey)
     {}
         public void RiverStart()
     {
         Console.Clear();
-        if(_moodLevel == MoodState.Neutral)
+        PrintResponse("describe_river");
+        bool running = true;
+
+        while(running)
         {
-            Narrator neutralnarrator = new NeutralNarrator();
-            string rndresponse = neutralnarrator.DescribeEnvironment("river");
-            neutralnarrator.DialogueSpeed(rndresponse);
-        }
-        else if(_moodLevel == MoodState.Angry)
-        {
-            Narrator angrynarrator = new NeutralNarrator();
-            string rndresponse = angrynarrator.DescribeEnvironment("river");
-            angrynarrator.DialogueSpeed(rndresponse);
-        }
-        else if(_moodLevel == MoodState.Depressed)
-        {
-            Narrator depressednarrator = new NeutralNarrator();
-            string rndresponse = depressednarrator.DescribeEnvironment("river");
-            depressednarrator.DialogueSpeed(rndresponse);
-        }
+            Console.WriteLine("1. Go fishing");
+            Console.WriteLine("2. The Little Boat");
+            Console.WriteLine("3. Mound of Dirt");
+            Console.WriteLine("4. Go Back");
+            Console.WriteLine("5. Hint");
 
-//        Console.WriteLine("");
-//        Console.WriteLine("");
-//        Console.WriteLine("");
-//        Console.WriteLine("");
-//        Console.WriteLine("");
+            string choice = Console.ReadLine();
 
-        string choice = Console.ReadLine();
+            switch(choice)
+            {
+                case "1":
+                if (_fishpole == true)
+                {
 
-        switch(choice)
-        {
-            case "1":
-            break;
+                }
+                else
+                {
 
-            case "2":
-            break;
+                }
+                break;
 
-            case "3":
-            break;
+                case "2":
+                if (_shovel == true)
+                {
 
-            case "4":
-            break;
+                }
+                else
+                {
+
+                }
+                break;
+
+                case "3":
+                if(_rock == true)
+                {
+
+                }
+                else
+                {
+
+                }
+                break;
+
+                case "4":
+                running = false;
+                break;
+
+                case "5":
+                PrintResponse("river_hint");
+                break;
+            }
         }
     }
 }
