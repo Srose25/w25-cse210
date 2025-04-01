@@ -1,9 +1,6 @@
 public abstract class Narrator()
 {
     protected readonly Dictionary<string, List<string>> _dialogue = new Dictionary<string, List<string>>();
-    protected readonly Dictionary<string, List<string>> _hint = new Dictionary<string, List<string>>();
-    protected readonly Dictionary<string, List<string>> _environment = new Dictionary<string, List<string>>();
-
 
     // Virtual methods
     public virtual string GetDialogue(string key)
@@ -13,7 +10,7 @@ public abstract class Narrator()
 
 
     // Utility Method
-        public string GetRandomResponse(Dictionary<string, List<string>> dictionary, string key)
+    public string GetRandomResponse(Dictionary<string, List<string>> dictionary, string key)
     {
         if (dictionary.ContainsKey(key) && dictionary[key].Count > 0)
         {
