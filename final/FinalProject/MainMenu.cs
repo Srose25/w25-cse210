@@ -21,7 +21,7 @@ public class MainMenu()
             switch(choice)
             {
                 case "1":
-                Area start = new Area(0, 0, false, false, false);
+                Area start = new Area(0, false, false, false, 0, 0, 0, false, false, false);
                 start.Start();
                 break;
 
