@@ -6,47 +6,39 @@ public class CaveArea : Area
     public void CaveStart()
     {
         Console.Clear();
-        if(_moodLevel == MoodState.Neutral)
+        PrintResponse("describe_cave");
+        bool running = true;
+
+        while(running)
         {
-            Narrator neutralnarrator = new NeutralNarrator();
-            string rndresponse = neutralnarrator.DescribeEnvironment("cave");
-            neutralnarrator.DialogueSpeed(rndresponse);
-        }
-        else if(_moodLevel == MoodState.Angry)
-        {
-            Narrator angrynarrator = new NeutralNarrator();
-            string rndresponse = angrynarrator.DescribeEnvironment("cave");
-            angrynarrator.DialogueSpeed(rndresponse);
-        }
-        else if(_moodLevel == MoodState.Depressed)
-        {
-            Narrator depressednarrator = new NeutralNarrator();
-            string rndresponse = depressednarrator.DescribeEnvironment("cave");
-            depressednarrator.DialogueSpeed(rndresponse);
-        }
 
+            Console.WriteLine("1. Bottomless Pit");
+            Console.WriteLine("2. Dig a Rock");
+            Console.WriteLine("3. Memorial");
+            Console.WriteLine("4. Go Back");
+            Console.WriteLine("5. Hint");
 
-        Console.WriteLine("");
-        Console.WriteLine("");
-        Console.WriteLine("");
-        Console.WriteLine("");
-        Console.WriteLine("");
+            string choice = Console.ReadLine();
 
-        string choice = Console.ReadLine();
+            switch(choice)
+            {
+                case "1":
+                break;
 
-        switch(choice)
-        {
-            case "1":
-            break;
+                case "2":
+                break;
 
-            case "2":
-            break;
+                case "3":
+                break;
 
-            case "3":
-            break;
+                case "4":
+                running = false;
+                break;
 
-            case "4":
-            break;
+                case "5":
+                PrintResponse("cave_hint");
+                break;
+            }
         }
     }
 }

@@ -52,7 +52,8 @@ public class Area
             Console.WriteLine("Menu:\n");
             Console.WriteLine("1. Look Around"); //Menu options
             Console.WriteLine("2. Inventory");
-            Console.WriteLine("3. ");
+            Console.WriteLine("3. Unlock the Box");
+            Console.WriteLine("4. Quit");
             string choice = Console.ReadLine();
 
             switch(choice)
@@ -101,8 +102,6 @@ public class Area
                 running = false;
                 break;
             }
-
-            
         }
     }
 
@@ -113,18 +112,15 @@ public class Area
 
 
     //Utility Methods
-    public void SetMood(MoodState value)
+    public void SetMood()
     {
-        _moodLevel = value;
+        _moodLevel = MoodState.Neutral;
     }
 
-    public MoodState GetMood()
-    {
-        return _moodLevel;
-    }
+
     public void PrintResponse(string key)
     {
-                if(_moodLevel == MoodState.Neutral)
+        if(_moodLevel == MoodState.Neutral)
         {
             Narrator neutralnarrator = new NeutralNarrator();
             string rndresponse = neutralnarrator.GetDialogue(key);
