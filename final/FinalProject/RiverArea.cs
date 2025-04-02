@@ -35,7 +35,7 @@ public class RiverArea : Area
                     CollectItem("Seaweed Key");
                     Thread.Sleep(1000);
                 }
-                else if(_fishpole == true && _Rkey == true)
+                else if(_Rkey == true)
                 {
                     PrintResponse("repeat");
                     Console.WriteLine();
@@ -73,7 +73,6 @@ public class RiverArea : Area
                         _picture = true;
                         Console.WriteLine("The Picture was destroyed.");
                         PlaySound("anger.wav");
-                        _inventory.Add("Broken Picture");
                         _depression += 1;
                         CollectItem("Broken Picture");
                         Thread.Sleep(2000);
@@ -84,9 +83,10 @@ public class RiverArea : Area
                         Thread.Sleep(2000);
                     }
                 }
-                else if (_rock == true && _picture == true)
+                else if (_picture == true)
                 {
                     PrintResponse("repeat");
+                    Console.WriteLine();
                 }
                 else
                 {

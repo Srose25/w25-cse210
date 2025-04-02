@@ -2,10 +2,10 @@ using System.Media;
 public class Area
 {
     //Attributes
-    protected int _depression;
-    protected bool _shovel;
-    protected bool _fishpole;
-    protected bool _rock;
+    protected static int _depression;
+    protected static bool _shovel;
+    protected static bool _fishpole;
+    protected static bool _rock;
     public enum MoodState
     {
         Neutral = 0,
@@ -14,29 +14,29 @@ public class Area
     }
     protected MoodState _moodLevel = MoodState.Neutral; //Different integer = Different mood
 
-    protected bool _locket;
-    protected bool _picture;                             
-    protected bool _musbox;                              
+    protected static bool _locket;
+    protected static bool _picture;                             
+    protected static bool _musbox;                              
 
-    protected bool _Gkey;
-    protected bool _Rkey;
-    protected bool _Ckey;
+    protected static bool _Gkey;
+    protected static bool _Rkey;
+    protected static bool _Ckey;
 
     protected static List<string> _inventory = new List<string>{};
 
     //Behaviors
     public Area(int depression, bool shovel, bool fishpole, bool rock, bool locket, bool picture, bool musbox, bool Gkey, bool Rkey, bool Ckey)
     {
-        this._depression = depression;
-        this._shovel = shovel;
-        this._fishpole = fishpole;
-        this._rock = rock;
-        this._locket = locket;
-        this._picture = picture;
-        this._musbox = musbox;
-        this._Gkey = Gkey;
-        this._Rkey = Rkey;
-        this._Ckey = Ckey;
+        _depression = depression;
+        _shovel = shovel;
+        _fishpole = fishpole;
+        _rock = rock;
+        _locket = locket;
+        _picture = picture;
+        _musbox = musbox;
+        _Gkey = Gkey;
+        _Rkey = Rkey;
+        _Ckey = Ckey;
     }
 
     public void Start()

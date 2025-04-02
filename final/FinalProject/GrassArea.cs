@@ -22,20 +22,68 @@ public class GrassArea : Area
 
             switch(choice)
             {
-                case "1":
+                case "1":               //Treehouse
+
                 break;
 
-                case "2":
+                case "2":               //Locket
+                if(_rock == true)
+                {
+                    PrintResponse("locket_rock");
+                    Console.WriteLine("Do you want to break the locket? y/n");
+                    string rchoice = Console.ReadLine();
+                    if(rchoice == "y")
+                    {
+                        _locket = true;
+                        Console.WriteLine("The Locket was destroyed.");
+                        PlaySound("anger.wav");
+                        _depression += 1;
+                        CollectItem("Broken Locket");
+                        Thread.Sleep(2000);
+                    }
+                    else if(rchoice == "n")
+                    {
+                        Console.WriteLine("You left the locket alone");
+                        Thread.Sleep(2000);
+                    }
+                }
+                else if(_rock && _locket == true)
+                {
+                    PrintResponse("repeat");
+                    Console.WriteLine();
+                }
+                else
+                {
+                    PrintResponse("locket_norock");
+                    Console.WriteLine();
+                }
                 break;
 
-                case "3":
+                case "3":               //The Hill
+                if (_shovel == true)
+                {
+                    PrintResponse("hill_shovel");
+                    _fishpole = true;
+                    CollectItem("Fishing Pole");
+                    Console.WriteLine();
+                }
+                else if (_fishpole == true)
+                {
+                    PrintResponse("repeat");
+                    Console.WriteLine();
+                }
+                else
+                {
+                    PrintResponse("hill_noshovel");
+                    Console.WriteLine();
+                }
                 break;
 
-                case "4":
+                case "4":               //Go Back
                 running = false;
                 break;
 
-                case "5":
+                case "5":               //Hint
                 PrintResponse("grass_hint");
                 break;
             }
