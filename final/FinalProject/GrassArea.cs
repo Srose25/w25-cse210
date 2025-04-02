@@ -1,11 +1,12 @@
 public class GrassArea : Area
 {
-    public GrassArea(int depression, bool shovel, bool fishpole, bool rock, int locket, int picture, int musbox, bool Gkey, bool Rkey, bool Ckey)
+    public GrassArea(int depression, bool shovel, bool fishpole, bool rock, bool locket, bool picture, bool musbox, bool Gkey, bool Rkey, bool Ckey)
         : base(depression, shovel, fishpole, rock, locket, picture, musbox, Gkey, Rkey, Ckey)
     {}
         public void GrassStart()
     {
         Console.Clear();
+        PlaySound("the_grass.wav");
         PrintResponse("describe_grass");
         bool running = true;
 

@@ -1,3 +1,4 @@
+using System.Media;
 public class Area
 {
     //Attributes
@@ -8,23 +9,24 @@ public class Area
     public enum MoodState
     {
         Neutral = 0,
-        Angry = 1,
-        Depressed = 2
+        Depressed = 1,
+        Angry = 2
     }
     protected MoodState _moodLevel = MoodState.Neutral; //Different integer = Different mood
 
-    protected int _locket;
-    protected int _picture;                             // 1 = you've collected it
-    protected int _musbox;                              // 2 = it's broken
+    protected bool _locket;
+    protected bool _picture;                             
+    protected bool _musbox;                              
 
     protected bool _Gkey;
     protected bool _Rkey;
     protected bool _Ckey;
 
-    //Behaviors
-    public Area(int depression, bool shovel, bool fishpole, bool rock, int locket, int picture, int musbox, bool Gkey, bool Rkey, bool Ckey)
-    {
+    protected List<string> _inventory;
 
+    //Behaviors
+    public Area(int depression, bool shovel, bool fishpole, bool rock, bool locket, bool picture, bool musbox, bool Gkey, bool Rkey, bool Ckey)
+    {
         this._depression = depression;
         this._shovel = shovel;
         this._fishpole = fishpole;
@@ -35,6 +37,8 @@ public class Area
         this._Gkey = Gkey;
         this._Rkey = Rkey;
         this._Ckey = Ckey;
+
+        _inventory = new List<string>{};
     }
 
     public void Start()
@@ -89,6 +93,20 @@ public class Area
                 break;
 
                 case "2":   //Inventory
+                Console.Clear();
+                Console.WriteLine("Inventory:");
+                if (_inventory.Count == 0)
+                {
+                    Console.WriteLine("Your inventory is empty.");
+                }
+                else
+                {
+                    for (int i = 0; i < _inventory.Count; i++)
+                    {
+                        Console.WriteLine($"{i + 1}. {_inventory[i]}");
+                    }
+                }
+                Console.ReadLine();
                 break;
 
                 case "3":   //Unlock the Box / end the game
@@ -114,9 +132,24 @@ public class Area
     //Utility Methods
     public void SetMood()
     {
-        _moodLevel = MoodState.Neutral;
+        if(_depression == 0 || _depression == 1)
+        {
+            _moodLevel = MoodState.Neutral;
+        }
+        else if(_depression == 2)
+        {
+            _moodLevel = MoodState.Depressed;
+        }
+        else if(_depression == 3)
+        {
+            _moodLevel = MoodState.Angry;
+        }
     }
 
+    public void CollectItem(string item)
+    {
+        _inventory.Add(item);
+    }
 
     public void PrintResponse(string key)
     {
@@ -126,17 +159,29 @@ public class Area
             string rndresponse = neutralnarrator.GetDialogue(key);
             neutralnarrator.DialogueSpeed(rndresponse);
         }
+        else if(_moodLevel == MoodState.Depressed)
+        {
+            Narrator depressednarrator = new NeutralNarrator();
+            string rndresponse = depressednarrator.GetDialogue(key);
+            depressednarrator.DialogueSpeed(rndresponse);
+        }
         else if(_moodLevel == MoodState.Angry)
         {
             Narrator angrynarrator = new NeutralNarrator();
             string rndresponse = angrynarrator.GetDialogue(key);
             angrynarrator.DialogueSpeed(rndresponse);
         }
-        else if(_moodLevel == MoodState.Depressed)
+    }
+    public void PlaySound(string key)
+    {
+        try
         {
-            Narrator depressednarrator = new NeutralNarrator();
-            string rndresponse = depressednarrator.GetDialogue(key);
-            depressednarrator.DialogueSpeed(rndresponse);
+            SoundPlayer player = new SoundPlayer(key);
+            player.Play();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Failed to play sound: {ex.Message}");
         }
     }
 }
