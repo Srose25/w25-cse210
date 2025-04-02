@@ -9,8 +9,8 @@ class Program
         //Debug Sounds
 
         //Console.WriteLine("Current Directory: " + Directory.GetCurrentDirectory());
-        //MainMenu test1 = new MainMenu();
-        //if (!File.Exists("talk1.wav"))
+        //Area test1 = new Area(0, false, false, false, false, false, false, false, false, false);
+        //if (!File.Exists("the_river.wav"))
         //{
         //    Console.WriteLine("File not found!");
         //}
@@ -21,14 +21,15 @@ class Program
         //    Console.WriteLine("File found!");
         //    while(running)
         //    {
-        //        if(go == 10)
+        //        if(go == 1)
         //        {
         //            running = false;
         //        }
         //        else
         //        {
-        //            test1.PlaySound("talk1.wav");
-        //            Thread.Sleep(300);
+        //            test1.PlaySound("the_river.wav");
+        //            test1.PrintResponse("describe_river");
+        //            Thread.Sleep(10000);
         //            go += 1;
         //        }
         //    }
