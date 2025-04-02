@@ -21,7 +21,7 @@ public class MainMenu()
             switch(choice)
             {
                 case "1":
-                Area start = new Area(0, false, false, false, 0, 0, 0, false, false, false);
+                Area start = new Area(0, false, false, false, false, false, false, false, false, false);
                 start.Start();
                 break;
 
@@ -30,18 +30,6 @@ public class MainMenu()
                 running = false;
                 break;
             }
-        }
-    }
-    public void PlaySound(string key)
-    {
-        try
-        {
-            SoundPlayer player = new SoundPlayer(key);
-            player.Play();
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Failed to play sound: {ex.Message}");
         }
     }
 }
