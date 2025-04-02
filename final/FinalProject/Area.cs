@@ -22,7 +22,7 @@ public class Area
     protected bool _Rkey;
     protected bool _Ckey;
 
-    protected List<string> _inventory;
+    protected static List<string> _inventory = new List<string>{};
 
     //Behaviors
     public Area(int depression, bool shovel, bool fishpole, bool rock, bool locket, bool picture, bool musbox, bool Gkey, bool Rkey, bool Ckey)
@@ -37,8 +37,6 @@ public class Area
         this._Gkey = Gkey;
         this._Rkey = Rkey;
         this._Ckey = Ckey;
-
-        _inventory = new List<string>{};
     }
 
     public void Start()
