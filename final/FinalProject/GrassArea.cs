@@ -23,7 +23,26 @@ public class GrassArea : Area
             switch(choice)
             {
                 case "1":               //Treehouse
-
+                if (_rock == true)
+                {
+                    PrintResponse("treehouse_rock");
+                    Console.WriteLine();
+                    _Gkey = true;
+                    PlaySound("key_found.wav");
+                    PrintResponse("key_found");
+                    CollectItem("Treehouse Key");
+                    Thread.Sleep(1000);
+                }
+                else if(_Gkey == true)
+                {
+                    PrintResponse("repeat");
+                    Console.WriteLine();
+                }
+                else
+                {
+                    PrintResponse("treehouse_norock");
+                    Console.WriteLine();
+                }
                 break;
 
                 case "2":               //Locket
@@ -38,8 +57,8 @@ public class GrassArea : Area
                         Console.WriteLine("The Locket was destroyed.");
                         PlaySound("anger.wav");
                         _depression += 1;
+                        SetMood();
                         CollectItem("Broken Locket");
-                        Thread.Sleep(2000);
                     }
                     else if(rchoice == "n")
                     {

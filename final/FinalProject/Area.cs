@@ -12,7 +12,7 @@ public class Area
         Depressed = 1,
         Angry = 2
     }
-    protected MoodState _moodLevel = MoodState.Neutral; //Different integer = Different mood
+    protected static MoodState _moodLevel = MoodState.Neutral; //Different integer = Different mood
 
     protected static bool _locket;
     protected static bool _picture;                             
@@ -123,7 +123,10 @@ public class Area
 
     public void End()
     {
+        Console.Clear();
         //What happens when you open the box / end monologue
+        Console.WriteLine("Holy crap this actually worked");
+        Thread.Sleep(5000);
     }
 
 
@@ -147,6 +150,8 @@ public class Area
     public void CollectItem(string item)
     {
         _inventory.Add(item);
+        Console.WriteLine("Item Collected!");
+        Thread.Sleep(2000);
     }
 
     public void PrintResponse(string key)
@@ -159,13 +164,13 @@ public class Area
         }
         else if(_moodLevel == MoodState.Depressed)
         {
-            Narrator depressednarrator = new NeutralNarrator();
+            Narrator depressednarrator = new DepressedNarrator();
             string rndresponse = depressednarrator.GetDialogue(key);
             depressednarrator.DialogueSpeed(rndresponse);
         }
         else if(_moodLevel == MoodState.Angry)
         {
-            Narrator angrynarrator = new NeutralNarrator();
+            Narrator angrynarrator = new AngryNarrator();
             string rndresponse = angrynarrator.GetDialogue(key);
             angrynarrator.DialogueSpeed(rndresponse);
         }

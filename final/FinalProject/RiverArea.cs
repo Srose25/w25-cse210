@@ -55,10 +55,8 @@ public class RiverArea : Area
                 else
                 {
                     PrintResponse("boat_noshovel");
-                    Console.WriteLine("Item Collected!");
                     _shovel = true;
                     CollectItem("Shovel");
-                    Thread.Sleep(2000);
                 }
                 break;
 
@@ -74,8 +72,8 @@ public class RiverArea : Area
                         Console.WriteLine("The Picture was destroyed.");
                         PlaySound("anger.wav");
                         _depression += 1;
+                        SetMood();
                         CollectItem("Broken Picture");
-                        Thread.Sleep(2000);
                     }
                     else if(rchoice == "n")
                     {
