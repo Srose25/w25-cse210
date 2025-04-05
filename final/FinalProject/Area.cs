@@ -42,7 +42,7 @@ public class Area
     public void Start()
     {
         Console.Clear();
-        PlaySound("");
+        PlaySound("intro.wav");
         PrintResponse("begin");
         Thread.Sleep(5000);
         AreaMenu();
@@ -133,7 +133,7 @@ public class Area
     public void End()
     {
         Console.Clear();
-        PlaySound("");
+        PlaySound("outro.wav");
         PrintResponse("ending");
         Thread.Sleep(5000);
         Console.WriteLine("Thank you for playing my game!");

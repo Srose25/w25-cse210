@@ -26,7 +26,7 @@ public class CaveArea : Area
                 case "1":                               //Music Box
                 if(_rock && _fishpole == true)
                 {
-                    PlaySound("mus_box.wav");           //Check and make sure that's the name of the file
+                    PlaySound("music_box.wav");           //Check and make sure that's the name of the file
                     PrintResponse("pit_pole_rock");
                     Console.WriteLine("Do you want to break the music box? y/n");
                     string rchoice = Console.ReadLine();
