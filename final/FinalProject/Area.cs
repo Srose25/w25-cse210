@@ -41,7 +41,10 @@ public class Area
 
     public void Start()
     {
-        //Beginning monologue and exposition
+        Console.Clear();
+        PlaySound("");
+        PrintResponse("begin");
+        Thread.Sleep(5000);
         AreaMenu();
     }
 
@@ -111,6 +114,12 @@ public class Area
                 if (_Gkey && _Rkey && _Ckey)
                 {
                     End();
+                    running = false;
+                }
+                else
+                {
+                    Console.WriteLine("Not yet...");
+                    Thread.Sleep(3000);
                 }
                 break;
 
@@ -124,8 +133,10 @@ public class Area
     public void End()
     {
         Console.Clear();
-        //What happens when you open the box / end monologue
-        Console.WriteLine("Holy crap this actually worked");
+        PlaySound("");
+        PrintResponse("ending");
+        Thread.Sleep(5000);
+        Console.WriteLine("Thank you for playing my game!");
         Thread.Sleep(5000);
     }
 
