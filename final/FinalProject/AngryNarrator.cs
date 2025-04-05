@@ -18,7 +18,7 @@ public class AngryNarrator : Narrator
 
         _dialogue["fishing_pole"] = new List<string>
         {
-            "Wow, congratulations! You managed to do the one thing \nrequired to catch a fish. I'm absolutely floored by your competence.",
+            "Wow, congratulations! You managed to do the one thing \nrequired to get the key. I'm absolutely floored by your competence.",
             "You cast your line, and miraculously, a something actually bites. \nHonestly, I had my doubts.",
             "Against all odds, you catch something. I was fully expecting you \nto drop it, but hey, look at you, exceeding expectations."
         };

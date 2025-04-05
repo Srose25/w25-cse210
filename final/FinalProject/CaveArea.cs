@@ -52,7 +52,8 @@ public class CaveArea : Area
                 }
                 else
                 {
-                    PrintResponse("locket_norock");
+                    PlaySound("music_box.wav");   
+                    PrintResponse("pit_pole_norock");
                     Console.WriteLine();
                 }
                 break;

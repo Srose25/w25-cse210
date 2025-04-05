@@ -19,7 +19,7 @@ public class NeutralNarrator : Narrator
         {
             "The wind in your hair, the mist across your body, and the smile on your face.\n You plunge the fishing rod down into the depths and wait patiently.\n Suddenly a tug at the twig and out of the water it launches!",
             "With patience, you cast your line into the current. A moment\n passes, then—success! A key leaps from the water, caught in your grasp.",
-            "The river is alive with motion, and for a moment, so are you. A tug on the line, a swift pull, and a fish breaks the surface."
+            "The river is alive with motion, and for a moment, so are you.\n A tug on the line, a swift pull, and a key breaks the surface."
         };
 
         _dialogue["boat_noshovel"] = new List<string>

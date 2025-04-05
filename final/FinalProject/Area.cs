@@ -133,11 +133,20 @@ public class Area
     public void End()
     {
         Console.Clear();
+        PlaySound("box_open.wav");
+        Console.Write("The Box...");
+        Thread.Sleep(2000);
+        Console.Write(" begins...");
+        Thread.Sleep(2000);
+        Console.Write(" to open...");
+        Thread.Sleep(4000);
+
+        Console.Clear();
         PlaySound("outro.wav");
         PrintResponse("ending");
         Thread.Sleep(5000);
-        Console.WriteLine("Thank you for playing my game!");
-        Thread.Sleep(5000);
+        Console.WriteLine("\nThank you for playing my game!");
+        Console.ReadLine();
     }
 
 
