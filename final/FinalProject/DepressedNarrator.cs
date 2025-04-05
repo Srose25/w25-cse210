@@ -211,6 +211,12 @@ public class DepressedNarrator : Narrator
             "Perhaps you're searching for something. Perhaps you already lost it.",
             "The past and the present blur, and yet, here you stand."
         };
+
+        _dialogue["ending"] = new List<string>
+        {
+            "... It… It was me. I locked my memory away. I allowed you to destroy my things. Those \nmemories are gone now. I can never get them back. She's gone forever and nothing can be \ndone about that. I miss her… I miss the past… and I'm trapped in the present."
+        };
+
     }
 
     public override void DialogueSpeed(string sentence)

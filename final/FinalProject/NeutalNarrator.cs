@@ -208,7 +208,15 @@ public class NeutralNarrator : Narrator
             "Some say repetition is the key to mastery. \nOthers say it's just habit. Either way, here we are."
         };
 
+        _dialogue["begin"] = new List<string>
+        {
+            "Memories. The connective tissue between our conscious minds and reality. Without it \nwhat are we? That is the question I've been asking my self for a long time, traveler. I've lost \nmy memories. They've been locked away in this box, and only you can find the keys that \nunlock it. Please help me traveler."
+        };
 
+        _dialogue["ending"] = new List<string>
+        {
+        "Ah… I see. I see now why I locked this box… As much pain as these memories brought me, \nI'm glad you helped me, traveler. I see now that locking this pain away was not helpful to me \nat all. Forgetting the good memories is worse than having to live with the pain of these bad \nmemories. Embracing the pain is the only way we can live. Thank you, friend. Thank you…"
+        };
     }
 
     public override void DialogueSpeed(string sentence)

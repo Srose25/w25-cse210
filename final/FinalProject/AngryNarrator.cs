@@ -212,6 +212,12 @@ public class AngryNarrator : Narrator
             "Exploring new areas is *so* overrated. \nClearly, standing in place is the superior strategy.",
             "Oh no, please, don't let me stop you from wasting more time."
         };
+
+        _dialogue["ending"] = new List<string>
+        {
+            "This was a mistake. I shouldn't have opened up to you. You think I'm pathetic don't you. You pity \nme do you? A sad little narrator who can't let go of the past. News flash, I'm past the past. You \ndestroying my things was the best thing you could've ever done for me. The past is a chain \nthat enslaves you and me. The more you get stuck in the past the more you're hurting \nyourself. It wasn't enough to forget the past. The answer was to destroy it. My eyes are open \nnow… Thank you, friend."
+        };
+
     }
 
     public override void DialogueSpeed(string sentence)
